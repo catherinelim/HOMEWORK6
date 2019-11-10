@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">    
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-    
-    
+        
+        
 <head>
  <header>
         <h1 class="display-5">Weather Dashboard</h1>
@@ -16,32 +16,29 @@
 
 <body>
 
-<div class="container-row">
-        <div class="col-md-4"></div>
+<div class="row">
+        <div class="col-md-4">
         
-        <form id="city form">
-                <h2>Search for a City</h2>
+        <form id="searchForm">
+                <label for="search">Search for a City</label>
                 <br>
-                
-                <div id="buttons-view"></div>
-
-                <input id="citySearch" type="text" placeholder="" value="">
-               
-                <input type="submit" id="add-city"><i class="fa fa-search"></i>
-                
-                
+                <input type="text" id="add-city"><i class="fa fa-search"></i>
+                <input id="citySearch" type="submit" >
+                 
                 <div id="cityList"></div>
         
         </form> 
+        </div>
+</div>
+<div>
+        <div class ="row col-md-8">
+
+                <div class="col-md-12" id="display-top"></div>
+
 </div>
 
-<div class ="row col-md-8">
 
-        <div class="col-md-12" id="display-top"></div>
 
-</div>
-
-<div class="col-md-12">
         
         <div class="col-md-12" id="display-bottom">
                
@@ -49,11 +46,11 @@
         
         </div>
         
-        <div class="col-md-2 wforecast" id="day1"></div>
-        <div class="col-md-2 wforecast" id="day2"></div>
-        <div class="col-md-2 wforecast" id="day3"></div>
-        <div class="col-md-2 wforecast" id="day4"></div>
-        <div class="col-md-2 wforecast" id="day5"></div>
+        <div class="col-md-2 fcast" id="day1"></div>
+        <div class="col-md-2 fcast" id="day2"></div>
+        <div class="col-md-2 fcast" id="day3"></div>
+        <div class="col-md-2 fcast" id="day4"></div>
+        <div class="col-md-2 fcast" id="day5"></div>
         
         </div>
         
@@ -62,8 +59,7 @@
  
 </div>
         
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="script.js"></script>
      
 

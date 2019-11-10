@@ -21,10 +21,11 @@ body {
 
   }
 
-  #city-form {
+  #searchForm {
     background-color: white;
     margin-left: 10px;
     padding: 5px;
+    float: left;
 
 
   }
@@ -39,14 +40,14 @@ body {
   }
   
 
-h2 {
+label {
   font-size: 15px;
   
 }
 
 .citylist {
   display: block;
-  
+
 }
     
 .display {
@@ -57,12 +58,12 @@ h2 {
    
   }
 
-.wforecast {
-  background-color: lightblue;
+.fcast {
+  background-color: blue;
   color: white;
   margin: 20px 25px 10px 5px;
-  border-radius: 10px;
-  border: solid 2px gray;
+  border-radius: 6px;
+  border: 2px solid lightblue;
  
 }
   
