@@ -1,0 +1,68 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color:white;
+    border-bottom: 10px solid black;
+  
+  }  
+
+
+  .container-row {
+    background-color: white;
+    margin-left: 10px;
+    padding: 3px;
+
+  }
+
+  #city-form {
+    background-color: white;
+    margin-left: 10px;
+    padding: 5px;
+
+
+  }
+
+  .button-view {
+    background-color: lightgray;
+    margin-left: 10px;
+    padding: 3px;
+    border: 1px solid gray;
+    float: left;
+
+  }
+  
+
+h2 {
+  font-size: 15px;
+  
+}
+
+.citylist {
+  display: block;
+  
+}
+    
+.display {
+  border: solid 2px gray;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  
+   
+  }
+
+.wforecast {
+  background-color: lightblue;
+  color: white;
+  margin: 20px 25px 10px 5px;
+  border-radius: 10px;
+  border: solid 2px gray;
+ 
+}
+  
