@@ -13,8 +13,14 @@ body {
   
   }  
 
+  h2{
+    width: 100%;
+    text-align: center;
+    
+  
+  }  
 
-  .container-row {
+  .search-row {
     background-color: white;
     margin-left: 10px;
     padding: 3px;
