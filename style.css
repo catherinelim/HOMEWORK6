@@ -13,12 +13,16 @@ body {
   
   }  
 
-  h2{
-    width: 100%;
-    text-align: center;
+  h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+  }
     
+  h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: .75em;
+  }
   
-  }  
 
   .search-row {
     background-color: white;
@@ -36,15 +40,6 @@ body {
 
   }
 
-  .button-view {
-    background-color: lightgray;
-    margin-left: 10px;
-    padding: 3px;
-    border: 1px solid gray;
-    float: left;
-
-  }
-  
 
 label {
   font-size: 15px;
@@ -56,7 +51,7 @@ label {
 
 }
     
-.display {
+.display-top  {
   border: solid 2px gray;
   border-radius: 10px;
   margin-bottom: 5px;
@@ -64,7 +59,18 @@ label {
    
   }
 
+  .display-bottom  {
+    border: solid 2px gray;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    
+     
+ }
+
+  
 .fcast {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: .75em;
   background-color: blue;
   color: white;
   margin: 20px 25px 10px 5px;
