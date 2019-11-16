@@ -68,11 +68,10 @@ $.ajax({
   var weatherData = $("#display-top");
 
   
-  
+    
+ var icon  = "https://openweathermap.org/img/w/" + response.weather[0].icon +".png"
 
-  var icon  = "https://openweathermap.org/img/w/" + response.weather[0].icon +".png"
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +city + "&APPID=2c595e5e123bfcd382c19620d3039f87&units=imperial";
-  var UVindexURL = "https://api.openweathermap.org/data/2.5/uvi?APPID=2c595e5e123bfcd382c19620d3039f87"
+  //var UVindexURL = "https://api.openweathermap.org/data/2.5/uvi?APPID=2c595e5e123bfcd382c19620d3039f87"
 
   var h2     = $("<div>").text(response.name +"(" + currentDate +")");
   var temperature  = $("<div>").text("Temperature:" + response.main.temp + " °F" );
@@ -81,7 +80,7 @@ $.ajax({
   
   var humd  = $("<div>").text("Humidity:" + response.main.humidity + "%");
   
-  var UVInd = $("<div>").text("UV index:" , + response.wind.gust);
+  //var UVInd = $("<div>").text("UV index:" , + response.wind.gust);
   
   
   weatherData.append(h2);
@@ -89,7 +88,7 @@ $.ajax({
   weatherData.append(temperature);
   weatherData.append(windSpd);
   weatherData.append(humd);
-  weatherData.append(uvInd);
+ // weatherData.append(uvInd);
 
 
 });
@@ -99,9 +98,8 @@ $.ajax({
 // 5 day forecast
 
 var api = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=2c595e5e123bfcd382c19620d3039f87&units=imperial";
-var icon  = "https://openweathermap.org/img/w/" + response.weather[0].icon +".png"
+//var icon  = "https://openweathermap.org/img/w/" + response.weather[0].icon +".png"
 
-//var icon ="https://openweathermap.org/img/wn/" + response.weather[0].icon +".png"
 
 
 
@@ -109,6 +107,9 @@ $.ajax({
 url: api,
 method: "GET"
 }).then(function(response){
+  // $("#display-bottom").empty();
+  // var weatherData5 = $("#display-bottom");
+
  
 // forecast day1
 
@@ -120,10 +121,11 @@ method: "GET"
 
   date1.append(h3);
 
-  weatherData.append(h2, "<img src=" + icon + ">");
-  var icon  = "https://openweathermap.org/img/wn/5d@2x.png" + response.list[0].weather[0].icon + icon + ".png";
+  // weatherData5.append(h3, "<img src=" + icon + ">");
+  var icon  = "https://openweathermap.org/img/w" + response.list[0].weather[0].icon + icon + ".png";
   var temp1=$("<div>").text("Temperature:" + response.list[0].main.temp + " °F" );
   date1.append(temp1);
+ 
   var humd1  = $("<div>").text("Humidity:" + response.list[0].main.humidity + "%");
   date1.append(humd1);
 
