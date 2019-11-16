@@ -1,45 +1,56 @@
 
 
- var btn = $("#add-city");
- var search = $("#citySearch");
- var namecity = ["Los Angeles", "San francisco", "Seattle", "Chicago", "Denver"];
+var btn = $("#add-city");
+var search = $("#citySearch");
+var namecity = ["Los Angeles", "San francisco", "Seattle", "Chicago", "Denver"];
  
- var date = new Date();
- var currentDate = date.toLocaleDateString();
- var cityList =$("#cityList");
+var date = new Date();
+var currentDate = date.toLocaleDateString();
+var cityList =$("#cityList");
 
-// renderbutton();
 
-// function renderbutton(){
-// $("#citySearch").empty();
-// for (var i = 0; i < namecity.lenght; i ++) {
-// var a = $("<a>");
-// a.addClass("citylist");
 
-// a.attr("input-name", cityName[i]);
-// a.text(cityName[i]);
+renderbutton();
 
-// $("#citySearch").push(a);
+function renderbutton(){
+$("#cityList").empty();
+for (var i = 0; i < namecity.lenght; i ++) {
+var a = $("<a>");
+a.addClass("list-a");
 
-// }
+a.attr("input-name", cityname[i]);
+a.text(namecity[i]);
 
-// $("add-city").on("click", function (event) {
-// event.preventDefault();
-// var cityName=$("#searchList").val().trim();
-// if ($("#searchList").val()=== "") {
-// return;
-// } else {
+$("#cityList").append(a);
 
-//     cityName.unshift(cityName);
+}
 
-// cityName.pop();
 
-//   $("#searchList").val("");
 
-//   renderbutton();
+$("citySearch").on("click", function (event) {
 
-// }
+  event.preventDefault();
+  var cityName=$("add-city").val().trim();
+  if ($("#add-city").val()=== "") {
+    return;
+  } else {
 
+    namecity.unshift(cityName);
+
+    namecity.pop();
+
+    $("#searchList").val("");
+    renderbutton();
+
+}
+});
+
+$(".citylist-a").on("click", function(event){
+  event.preventDefault();
+
+
+
+});
 
 search.on("click", function(event) {
   event.preventDefault();
@@ -56,26 +67,30 @@ $.ajax({
   $("#display-top").empty();
   var weatherData = $("#display-top");
 
-
+  
+  
 
   var icon  = "https://openweathermap.org/img/w/" + response.weather[0].icon +".png"
-
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +city + "&APPID=2c595e5e123bfcd382c19620d3039f87&units=imperial";
+  var UVindexURL = "https://api.openweathermap.org/data/2.5/uvi?APPID=2c595e5e123bfcd382c19620d3039f87"
 
   var h2     = $("<div>").text(response.name +"(" + currentDate +")");
-  weatherData.append(h2);
   var temperature  = $("<div>").text("Temperature:" + response.main.temp + " °F" );
-  weatherData.append(temperature);
-  var windSpd = $("<div>").text("Speed:"+ response.wind.speed + "MPH");
-  weatherData.append(windSpd);
-  var humd  = $("<div>").text("Humidity:" + response.main.humidity + "%");
-  weatherData.append(humd);
-  var uvInd = $("<div>").text("UV index:" , + response.wind.gust);
-  weatherData.append(uvInd);
   
-// var cityshow = $("#cityList"); 
-// cityshow.text(response);
+  var windSpd = $("<div>").text("Speed:"+ response.wind.speed + "mph");
+  
+  var humd  = $("<div>").text("Humidity:" + response.main.humidity + "%");
+  
+  var UVInd = $("<div>").text("UV index:" , + response.wind.gust);
+  
+  
+  weatherData.append(h2);
+  weatherData.append(h2, "<img src=" + icon + ">");
+  weatherData.append(temperature);
+  weatherData.append(windSpd);
+  weatherData.append(humd);
+  weatherData.append(uvInd);
 
-weatherData.append(h2, "<img src=" + icon + ">");
 
 });
 
@@ -84,9 +99,9 @@ weatherData.append(h2, "<img src=" + icon + ">");
 // 5 day forecast
 
 var api = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=2c595e5e123bfcd382c19620d3039f87&units=imperial";
+var icon  = "https://openweathermap.org/img/w/" + response.weather[0].icon +".png"
 
-
-//var icon ="https://openweathermap.org/img/w/" + response.weather[0].icon +".png"
+//var icon ="https://openweathermap.org/img/wn/" + response.weather[0].icon +".png"
 
 
 
@@ -97,23 +112,28 @@ method: "GET"
  
 // forecast day1
 
+  $("#day1").empty();
   var date1 = new Date();
   date1.setDate(date1.getDate()+1);
   var h3 = $("<h3>").text(date1);
   var date1 = $("#day1");
 
   date1.append(h3);
-  var icon  = "https://openweathermap.org/img/w/" + response.list[0].weather[0].icon + icon + ".png";
+
+  weatherData.append(h2, "<img src=" + icon + ">");
+  var icon  = "https://openweathermap.org/img/wn/5d@2x.png" + response.list[0].weather[0].icon + icon + ".png";
   var temp1=$("<div>").text("Temperature:" + response.list[0].main.temp + " °F" );
   date1.append(temp1);
   var humd1  = $("<div>").text("Humidity:" + response.list[0].main.humidity + "%");
   date1.append(humd1);
+
   
 
   
  
 //forcast day2
 
+  $("#day2").empty();
   var date2 = new Date();
   date2.setDate(date2.getDate() + 2);
   //var day2 = nday2.toLocaleDateString();
@@ -133,7 +153,8 @@ method: "GET"
 
 // forcast day3
 
-var date3 = new Date();
+  $("#day3").empty();
+  var date3 = new Date();
   date3.setDate(date3.getDate() + 3);
   //var day2 = nday2.toLocaleDateString();
   var h3 = $("<h3>").text(date3);
@@ -151,7 +172,8 @@ var date3 = new Date();
 
 // forcast day4
 
-var date4 = new Date();
+  $("#day4").empty();
+  var date4 = new Date();
   date4.setDate(date4.getDate() + 4);
   //var day2 = nday2.toLocaleDateString();
   var h3 = $("<h3>").text(date4);
@@ -168,7 +190,8 @@ var date4 = new Date();
   
 // forcast day5
 
-var date5 = new Date();
+  $("#day5").empty();
+  var date5 = new Date();
   date5.setDate(date5.getDate() + 5);
   //var day2 = nday2.toLocaleDateString();
   var h3 = $("<h3>").text(date5);
@@ -183,4 +206,6 @@ var date5 = new Date();
   date5.append(humd2);
 
 });
+
 });
+}
